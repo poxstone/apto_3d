@@ -1,0 +1,7 @@
+*.blend1
+/*/*.blend1
+/*/*/*.blend1
+*.sw[mnop]
+referencias/*
+renders/*
+
