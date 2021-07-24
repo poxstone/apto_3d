@@ -3,5 +3,11 @@
 /*/*/*.blend1
 *.sw[mnop]
 referencias/*
-renders/*
-
+renders?/*
+*.blend[0-9]
+*.mkv
+*.png
+*.jp*g
+*.*~
+service-key.json
+*.sw[mnop]
