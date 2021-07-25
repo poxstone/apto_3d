@@ -5,7 +5,6 @@ FROM ${MASTER_IMAGE}
 ARG GOOGLE_CLOUD_PROJECT="zinc-anvil-320815"
 ARG ACCOUNTSERVICE_EMAIL="blender@zinc-anvil-320815.iam.gserviceaccount.com"
 ARG GCP_CREDENTIALS_FILE="./service-key.json"
-ARG GCP_CREDENTIALS_FILE="./service-key.json"
 ARG BUCKET_EXPORT="gs://zinc-anvil-320815-3dmodels/"
 ARG ENTRYPOINT_FILE="./entrypoint.sh"
 
@@ -23,7 +22,7 @@ ENV BUCKET_EXPORT="${BUCKET_EXPORT}"
 COPY . ${MODEL3D_FULL_PATH}
 
 # GCP authorize service account
-RUN gcloud auth activate-service-account "${ACCOUNTSERVICE_EMAIL}" --key-file "${GOOGLE_APPLICATION_CREDENTIALS}" -q && \
+RUN gcloud auth activate-service-account "${ACCOUNTSERVICE_EMAIL}" --key-file "${GCP_CREDENTIALS_FILE}" -q && \
     gcloud config set project "${GOOGLE_CLOUD_PROJECT}";
 
 WORKDIR ${MODEL3D_FULL_PATH}
