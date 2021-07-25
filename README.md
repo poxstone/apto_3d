@@ -35,7 +35,7 @@ docker run -it --rm --name "3dmodel" -v "$(pwd)/3dmodel:/3dmodel" -e "MODEL3D_FI
 
 - Run multiple render and simulate GCP AI platform parameters
 ```bash
-docker run -it --rm --name "3dmodel" --gpus all -e "CLOUD_ML_JOB=${CLOUD_ML_JOB}" "${CONTAINER_IMAGE_NAME}";
+docker run -it --rm --name "3dmodel" --gpus all -e "CLOUD_ML_JOB=\"{\"args\":[${CLOUD_ML_JOB}]}\"" "${CONTAINER_IMAGE_NAME}";
 
 # customize local arguments
 LOCAL_JOB='{"args":[{ "renders":[ { "blender_params":"--python ./blender_init.py --background ./main.blend --render-output ./render/image_ --render-format PNG --use-extension 1 --engine CYCLES --threads 8 --frame-start 1 --frame-end 1 --render-anim"}] }]}';
