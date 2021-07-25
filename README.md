@@ -30,17 +30,9 @@ docker build -t "${CONTAINER_IMAGE_NAME}" --build-arg "MASTER_IMAGE=${CONTAINER_
 - Local run
 ```bash
 docker run -it --rm --gpus all "${CONTAINER_IMAGE_NAME}";
-# customize files
-docker run -it --rm --name "3dmodel" -v "$(pwd)/3dmodel:/3dmodel" -e "MODEL3D_FILE=main.blend" -v "$(pwd)/entrypoint.sh:/3dmodel/entrypoint.sh"  "${CONTAINER_IMAGE_NAME}";
-```
-
-- Run multiple render and simulate GCP AI platform parameters
-```bash
-docker run -it --rm --name "3dmodel" --gpus all -e "CLOUD_ML_JOB=\"{\"args\":[${CLOUD_ML_JOB}]}\"" "${CONTAINER_IMAGE_NAME}";
-
 # customize local arguments
 LOCAL_JOB="{\"args\":[${CLOUD_ML_JOB}]}";
-docker run -it --rm --name "3dmodel" -v "/home/poxstone/3DObjects/apto/:/3dmodel" -v "$(pwd)/entrypoint.sh:/3dmodel/entrypoint.sh" -e "MODEL3D_FILE=main.blend" -e "LOCAL_JOB=${LOCAL_JOB}" "${CONTAINER_IMAGE_NAME}";
+docker run -it --rm --name "3dmodel" -v "$(pwd)/:/3dmodel" -e "MODEL3D_FILE=main.blend" -e "LOCAL_JOB=${LOCAL_JOB}" "${CONTAINER_IMAGE_NAME}";
 ```
 
 
