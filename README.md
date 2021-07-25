@@ -22,6 +22,10 @@ docker build -t "${CONTAINER_IMAGE_MASTER}" -f "Dockerfile_master_blender" ".";
 ```bash
 docker build -t "${CONTAINER_IMAGE_NAME}" --build-arg "MASTER_IMAGE=${CONTAINER_IMAGE_MASTER}" --build-arg "BUCKET_EXPORT=${BUCKET_EXPORT}" -f Dockerfile ".";
 ```
+
+
+## Local test
+
 - Local run
 ```bash
 docker run -it --rm --gpus all "${CONTAINER_IMAGE_NAME}";
@@ -43,11 +47,12 @@ docker run -it --rm --name "3dmodel" -v "/home/poxstone/3DObjects/apto/:/3dmodel
 
 - Copy blender model to Cloud Storage
 ```bash
-gsutil -m cp -r "./3dmodel/*" "${BUCKET_MODEL_SAVED}";
+gsutil -m cp -r "./*" "${BUCKET_MODEL_SAVED}";
 ```
 
 - upload containers
 ```bash
+gcloud auth configure-docker;
 docker push "${CONTAINER_IMAGE_MASTER}";
 docker push "${CONTAINER_IMAGE_NAME}";
 ```
