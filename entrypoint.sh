@@ -2,7 +2,7 @@
 
 args="$(echo $CLOUD_ML_JOB | jq -r '.args' | ascii2uni -a U -q)";
 dir_render_m="./internal_render/";
-DATE="${DATE}";
+DATE="$(date '+%Y%m%d_%H_%M')";
 IS_FINISHED="false";
 
 echo "---env $(env)";
@@ -37,7 +37,7 @@ function blenderRenderWithPrams {
     echo "---7 PARAMS_TO_BLENDER: blender ${blender_params}";
     dir_render_m='./render';
     gsCopy "${dir_render_m}/*" "${BUCKET_EXPORT}${DATE}/" & echo "--Send copy to back";
-    blender ${blender_params};
+    DISPLAY=:1 blender ${blender_params};
     ls -lha;
     IS_FINISHED="true";
   
