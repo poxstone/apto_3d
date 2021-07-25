@@ -3,6 +3,7 @@
 args="$(echo $CLOUD_ML_JOB | jq -r '.args' | ascii2uni -a U -q)";
 dir_render_m="./internal_render/";
 echo "---env $(env)";
+echo "---gsutil $(gsutil ls)";
 
 function blenderRenderWithPrams {
     local ARGS="${1}";
