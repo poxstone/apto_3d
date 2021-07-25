@@ -1,6 +1,7 @@
 # Render in Container AI Platform
 
 > **note:** get to "https://github.com/poxstone/blender-boycup" for more details
+> **note** Create and download "./service-key.json" from GCP
 
 ***files***
 - **3D**: main.blend, referencias, render, 3d_models/*,
@@ -38,7 +39,7 @@ docker run -it --rm --name "3dmodel" -v "$(pwd)/3dmodel:/3dmodel" -e "MODEL3D_FI
 docker run -it --rm --name "3dmodel" --gpus all -e "CLOUD_ML_JOB=\"{\"args\":[${CLOUD_ML_JOB}]}\"" "${CONTAINER_IMAGE_NAME}";
 
 # customize local arguments
-LOCAL_JOB='{"args":[{ "renders":[ { "blender_params":"--python ./blender_init.py --background ./main.blend --render-output ./render/image_ --render-format PNG --use-extension 1 --engine CYCLES --threads 8 --frame-start 1 --frame-end 1 --render-anim"}] }]}';
+LOCAL_JOB="{\"args\":[${CLOUD_ML_JOB}]}";
 docker run -it --rm --name "3dmodel" -v "/home/poxstone/3DObjects/apto/:/3dmodel" -v "$(pwd)/entrypoint.sh:/3dmodel/entrypoint.sh" -e "MODEL3D_FILE=main.blend" -e "LOCAL_JOB=${LOCAL_JOB}" "${CONTAINER_IMAGE_NAME}";
 ```
 

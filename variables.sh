@@ -7,4 +7,4 @@ export CONTAINER_IMAGE_NAME="gcr.io/${GOOGLE_CLOUD_PROJECT}/model3d-gpu:1.0";
 export REGION="us-east1";
 export SCALE_TIER="basic-gpu";
 export JOB_NAME="render$(date '+%Y%m%d%H%M')";
-export CLOUD_ML_JOB='{ "renders":[ { "bucket_model":"gs://zinc-anvil-320815-3dmodels/3dmodel", "blender_params":"--python ./blender_init.py -b ./main.blend -o ./render/render_ -F PNG -x 1 -E CYCLES -t 8 -s 1 -e 1 -a"}] }
+export CLOUD_ML_JOB='{ "renders":[ { "bucket_model":"gs://zinc-anvil-320815-3dmodels/3dmodel", "blender_params":"--python ./blender_init.py -b ./main.blend -o ./render/render_ -F PNG -x 1 -E CYCLES -t 8 -s 1 -e 1 -a"}] }'

@@ -14,11 +14,11 @@ function blenderRenderWithPrams {
     
     # download blender from cloud storage
     if [[ "${is_cloudstorage}" != "" ]];then
-        echo "---6 COPY FROM BUCKET";
+        echo "---6 COPY FROM BUCKET arg_inx= ${arg_inx}";
         local bucket_model=$(echo $arg_inx | jq -r '.bucket_model' | awk '{gsub("/+$","",$0);print($0)}');
         mkdir -p "${dir_render_m}";
         cd "${dir_render_m}";
-        gsutil -m cp -r "${bucket_model}/*" "${dir_render_m}";
+        gsutil -m cp -r "${bucket_model}/*" ".";
     fi;
 
     pwd;
