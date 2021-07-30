@@ -68,14 +68,14 @@ if [[ $args == "null" || $args == "" ]];then
     # render for specific frames animation and format
     #blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${RENDER_EXPORT}/${MODEL3D_FILE}" --render-format "PNG" --use-extension 1 --engine "CYCLES" --threads 8 --frame-start 1 --frame-end 1 --render-anim;
     # copy to bucket
-    setFinalize;
     gsutil -m cp -r "${RENDER_EXPORT}/*" "${BUCKET_EXPORT}${DATE_INIT}/";
+    setFinalize;
  
   # Docker recive LOCAL_JOB parameters
   else
     echo "--->3 RUN_INTERNAL_WITH_PARAMS_BLENDER";
     args="$(echo $LOCAL_JOB | jq -r '.args' | ascii2uni -a U -q)";
-    blenderRenderWithPrams "${args}" 0;
+    blenderRenderWithPrams "${args}" 0 "is_cloudstorage";
     setFinalize;
   fi;
 else
