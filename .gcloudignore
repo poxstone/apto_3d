@@ -8,3 +8,4 @@
 *.sw[mnop]
 referencias/*
 render/*
+.git/*
