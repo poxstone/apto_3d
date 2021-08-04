@@ -13,6 +13,9 @@ function gsCopySleep {
   echo "--> SEND_COPY_SLEEPING";
   local original_dir="${1}";
   local bucket_export="${2}";
+  # create if not exits for prevent
+  mkdir -p "${original_dir}";
+  date > "${original_dir}/date.txt";
   while [[ "${IS_FINISHED}" == "FALSE" ]];do
     gsutil -m cp -r "${original_dir}" "${bucket_export}";
     sleep ${SLEEP};
