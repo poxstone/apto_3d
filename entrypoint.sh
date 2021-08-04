@@ -67,11 +67,11 @@ if [[ $args == "null" || $args == "" ]];then
     echo "--->2 RUN_INTERNAL_WITOUTH_PARAMETERS";      
     # execute blender -a = animation; -t = threads; -s init frame -e = end frame;
     gsCopySleep "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}${DATE_INIT}/" & \
-    blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${RENDER_EXPORT}/${MODEL3D_FILE}" --use-extension 1 --engine "CYCLES" --render-anim;
+    blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${DIR_RENDER_M}/${MODEL3D_FILE}" --use-extension 1 --engine "CYCLES" --render-anim;
     # render for specific frames animation and format
-    #blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${RENDER_EXPORT}/${MODEL3D_FILE}" --render-format "PNG" --use-extension 1 --engine "CYCLES" --threads 8 --frame-start 1 --frame-end 1 --render-anim;
+    #blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${DIR_RENDER_M}/${MODEL3D_FILE}" --render-format "PNG" --use-extension 1 --engine "CYCLES" --threads 8 --frame-start 1 --frame-end 1 --render-anim;
     # copy to bucket
-    gsutil -m cp -r "${RENDER_EXPORT}/*" "${BUCKET_EXPORT}${DATE_INIT}/";
+    gsutil -m cp -r "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}${DATE_INIT}/";
     setFinalize;
  
   # Docker recive LOCAL_JOB parameters
@@ -79,8 +79,8 @@ if [[ $args == "null" || $args == "" ]];then
     echo "--->3 RUN_INTERNAL_WITH_PARAMS_BLENDER";
     args="$(echo $LOCAL_JOB | jq -r '.args' | ascii2uni -a U -q)";
     blenderRenderWithPrams "${args}" 0 "is_cloudstorage";
-    setFinalize;
   fi;
+  setFinalize;
 else
   echo "--->4 RUN_EXTERNAL_RENDER_MODELS";
   render_len=$(echo $args | jq -r '.[0]' | jq -r '.renders | length');
@@ -88,6 +88,6 @@ else
     echo "--->5 RUN_EXECUTING_MODEL_NUMBER: ${i} of ${render_len}";
     # render model
     blenderRenderWithPrams "${args}" "$i" "is_cloudstorage";
-    setFinalize;
   done;
+  setFinalize;
 fi;
