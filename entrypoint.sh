@@ -92,4 +92,6 @@ else
     blenderRenderWithPrams "${args}" "$i" "is_cloudstorage";
   done;
   setFinalize;
+  
+  sleep 60;
 fi;
