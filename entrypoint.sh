@@ -4,7 +4,7 @@ args="$(echo $CLOUD_ML_JOB | jq -r '.args' | ascii2uni -a U -q)";
 DIR_RENDER_M="./internal_render/";
 DATE_INIT="$(date '+%Y%m%d_%H_%M')";
 IS_FINISHED="FALSE";
-SLEEP=60;
+SLEEP=30;
 
 echo "---> ENV $(env)";
 echo "---> TEST_GSUTIL_PERMISSIONS $(gsutil ls)";
@@ -17,6 +17,8 @@ function gsCopySleep {
   mkdir -p "${original_dir}";
   date > "${original_dir}/date.txt";
   while [[ "${IS_FINISHED}" == "FALSE" ]];do
+    ls "${original_dir}";
+    echo gsutil -m cp -r "${original_dir}" "${bucket_export}";
     gsutil -m cp -r "${original_dir}" "${bucket_export}";
     sleep ${SLEEP};
   done;

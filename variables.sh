@@ -11,3 +11,5 @@ export JOB_NAME="render$(date '+%Y%m%d%H%M')";
 export CLOUD_ML_JOB='{ "renders":[ { "bucket_model":"gs://zinc-anvil-320815-3dmodels/3dmodel", "blender_params":"--python ./blender_init.py -b ./main.blend -o ./render/render_ -x 1 -E CYCLES -t 8 -s 0 -e 260 -j 1 -a"}] }'
 # Images export -  engines: BLENDER_EEVEE BLENDER_WORKBENCH CYCLES
 export CLOUD_ML_JOB='{ "renders":[ { "bucket_model":"gs://zinc-anvil-320815-3dmodels/3dmodel", "blender_params":"--python ./blender_init.py -b ./main.blend -o ./render/render_ -F PNG -x 1 -E CYCLES -t 8 -s 0 -e 260 -j 20 -a"}] }'
+
+# second project
