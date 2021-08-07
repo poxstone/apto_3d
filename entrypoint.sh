@@ -4,7 +4,8 @@ args="$(echo $CLOUD_ML_JOB | jq -r '.args' | ascii2uni -a U -q)";
 DIR_RENDER_M="./internal_render/";
 DATE_INIT="$(date '+%Y%m%d_%H_%M')";
 IS_FINISHED="FALSE";
-SLEEP=30;
+AUTOSAVE=30; 
+SLEEP_FINALIZE=60;
 
 echo "---> ENV $(env)";
 echo "---> TEST_GSUTIL_PERMISSIONS $(gsutil ls)";
@@ -20,7 +21,7 @@ function gsCopySleep {
     ls "${original_dir}";
     echo gsutil -m cp -r "${original_dir}/*" "${bucket_export}";
     gsutil -m cp -r "${original_dir}/*" "${bucket_export}";
-    sleep ${SLEEP};
+    sleep ${AUTOSAVE};
   done;
 }
 
@@ -53,7 +54,6 @@ function blenderRenderWithPrams {
     #cd ..;
     gsutil -m cp -r "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}/${DATE_INIT}/";
   fi;
-  setFinalize;
 }
 
 function setFinalize {
@@ -72,15 +72,12 @@ if [[ $args == "null" || $args == "" ]];then
     blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${DIR_RENDER_M}/${MODEL3D_FILE}" --use-extension 1 --engine "CYCLES" --render-anim;
     # copy to bucket
     gsutil -m cp -r "${DIR_RENDER_M}" "${BUCKET_EXPORT}/${DATE_INIT}/";
-    setFinalize;
-
   # Docker recive LOCAL_JOB parameters
   else
     echo "--->3 RUN_INTERNAL_WITH_PARAMS_BLENDER";
     args="$(echo $LOCAL_JOB | jq -r '.args' | ascii2uni -a U -q)";
     blenderRenderWithPrams "${args}" 0 "is_cloudstorage";
   fi;
-  setFinalize;
 else
   echo "--->4 RUN_EXTERNAL_RENDER_MODELS";
   render_len=$(echo $args | jq -r '.[0]' | jq -r '.renders | length');
@@ -89,7 +86,8 @@ else
     # render model
     blenderRenderWithPrams "${args}" "$i" "is_cloudstorage";
   done;
-  setFinalize;
   
-  sleep 60;
 fi;
+
+sleep $SLEEP_FINALIZE;
+setFinalize;
