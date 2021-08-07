@@ -52,7 +52,7 @@ docker push "${CONTAINER_IMAGE_NAME}";
 
 - Render K8 X 1 (38 min 32 sec)
 ```bash
-gcloud ai-platform jobs submit training "${JOB_NAME}" --project "${GOOGLE_CLOUD_PROJECT}" \
+gcloud ai-platform jobs submit training "${JOB_NAME}day" --project "${GOOGLE_CLOUD_PROJECT}" \
 --region "${REGION}" \
 --master-image-uri "${CONTAINER_IMAGE_NAME}" \
 --scale-tier "${SCALE_TIER}" \

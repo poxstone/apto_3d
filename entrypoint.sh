@@ -44,14 +44,14 @@ function blenderRenderWithPrams {
   ls -lha;
   echo "--->7 PARAMS_TO_BLENDER: blender ${blender_params}";
   DIR_RENDER_M='./render';
-  gsCopySleep "${DIR_RENDER_M}" "${BUCKET_EXPORT}${DATE_INIT}/" & \
+  gsCopySleep "${DIR_RENDER_M}" "${BUCKET_EXPORT}/${DATE_INIT}/" & \
   blender ${blender_params};
   ls -lha;
   
   if [[ "${is_cloudstorage}" != "" ]];then
     echo "--->8 UPLOAD renders"
     #cd ..;
-    gsutil -m cp -r "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}${DATE_INIT}/";
+    gsutil -m cp -r "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}/${DATE_INIT}/";
   fi;
   setFinalize;
 }
@@ -68,10 +68,10 @@ if [[ $args == "null" || $args == "" ]];then
   if [[ $LOCAL_JOB == "null" || $LOCAL_JOB == "" ]];then
     echo "--->2 RUN_INTERNAL_WITOUTH_PARAMETERS";      
     # execute blender -a = animation; -t = threads; -s init frame -e = end frame;
-    gsCopySleep "${DIR_RENDER_M}" "${BUCKET_EXPORT}${DATE_INIT}/" & \
+    gsCopySleep "${DIR_RENDER_M}" "${BUCKET_EXPORT}/${DATE_INIT}/" & \
     blender --python "${MODEL3D_FULL_PATH}/blender_init.py" --background "${MODEL3D_FULL_PATH}/${MODEL3D_FILE}" --render-output "${DIR_RENDER_M}/${MODEL3D_FILE}" --use-extension 1 --engine "CYCLES" --render-anim;
     # copy to bucket
-    gsutil -m cp -r "${DIR_RENDER_M}" "${BUCKET_EXPORT}${DATE_INIT}/";
+    gsutil -m cp -r "${DIR_RENDER_M}" "${BUCKET_EXPORT}/${DATE_INIT}/";
     setFinalize;
 
   # Docker recive LOCAL_JOB parameters
