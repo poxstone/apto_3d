@@ -11,3 +11,4 @@ renders?/*
 *.*~
 service-key.json
 *.sw[mnop]
+internal_render/*

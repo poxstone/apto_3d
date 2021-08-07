@@ -1,4 +1,5 @@
 3dmodel/*.blend1?
+internal_render/*
 3dmodel/*.mkv
 3dmodel/*.png
 3dmodel/*.jp*g
