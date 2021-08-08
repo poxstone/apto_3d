@@ -41,17 +41,16 @@ function blenderRenderWithPrams {
     gsutil -m cp -r "${bucket_model}/*" ".";
   fi;
   
-  pwd;
-  ls -lha;
   echo "--->7 PARAMS_TO_BLENDER: blender ${blender_params}";
   DIR_RENDER_M='./render';
   gsCopySleep "${DIR_RENDER_M}" "${BUCKET_EXPORT}/${DATE_INIT}/" & \
   blender ${blender_params};
-  ls -lha;
   
   if [[ "${is_cloudstorage}" != "" ]];then
     echo "--->8 UPLOAD renders"
-    #cd ..;
+    pwd;
+    ls -lha ${DIR_RENDER_M};
+    echo gsutil -m cp -r "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}/${DATE_INIT}/";
     gsutil -m cp -r "${DIR_RENDER_M}/*" "${BUCKET_EXPORT}/${DATE_INIT}/";
   fi;
 }
