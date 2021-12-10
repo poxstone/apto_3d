@@ -91,7 +91,7 @@ def replace_name(original, sustitute, replace=True, selection=None):
     replaced = ''
     for sel in selection:
         original_name = sel.name
-        if re.match(original, sel.name):
+        if re.match(f'.*{original}.*', sel.name):
             if replace:
                 sel.name = re.sub(original, sustitute, sel.name)
             replaced += f'{sel.name},{original_name},{original},{sustitute}\n'
