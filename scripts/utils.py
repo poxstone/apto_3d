@@ -1,4 +1,4 @@
-import bpy, os
+import bpy, os, re
 
 TABLE_INCH = 1.5
 
@@ -24,9 +24,9 @@ def return_objects_scaled(reset_scale=False, selection=None):
                 objects_scaled += f"{sel.name},{scale}\n"
                 sel.select_set(True)
                 if reset_scale:
-                    sel.scale.x = 1.0
-                    sel.scale.y = 1.0
-                    sel.scale.z = 1.0
+                    sel.scale.x = 1.0 if sel.scale.x > 0 else -1.0
+                    sel.scale.y = 1.0 if sel.scale.y > 0 else -1.0
+                    sel.scale.z = 1.0 if sel.scale.z > 0 else -1.0
                 continue
     return objects_scaled
 
@@ -53,9 +53,9 @@ def replace_name(original, sustitute, replace=True, selection=None):
     selection = selection = auto_select(selection)
     replaced = ''
     for sel in selection:
-        if original in sel.name:
+        if re.match(original,sel.name):
             if replace:
-                sel.name = sel.name.replace(original, sustitute)
+                sel.name = re.sub(original, sustitute, sel.name)
             replaced += f'{sel.name}, {original}, {sustitute}\n'
     return replaced
 
