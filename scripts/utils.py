@@ -63,6 +63,20 @@ def replace_name(original, sustitute, replace=True, selection=None):
 #replace_name('canto_', 'canto')
 
 
+def fix_positions_objects(positione=False,selection=None):
+    selection = selection = auto_select(selection)
+    changed = ''
+    for sel in selection:
+        changed += f'{sel.name},{sel.location}'
+        if positione:
+            sel.location.x = round(sel.location.x, 3)
+            sel.location.y = round(sel.location.y, 3)
+            sel.location.z = round(sel.location.z, 3)
+            changed += f',{sel.location}'
+        changed += f'\n'
+    return changed
+
+
 # set path file
 def export_file(content, file_name):
     tempFolder = os.path.dirname(bpy.data.filepath)
