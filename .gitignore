@@ -9,6 +9,9 @@ renders?/*
 *.png
 *.jp*g
 *.*~
+*.pyc
 service-key.json
 *.sw[mnop]
 internal_render/*
+__pycache__/*
+scripts/__pycache__/*
