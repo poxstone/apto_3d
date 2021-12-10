@@ -14,7 +14,7 @@ def auto_select(selection=None):
         return bpy.context.selected_objects
     
 
-def return_objects_scaled(selection=None):
+def return_objects_scaled(reset_scale=False, selection=None):
     selection = auto_select(selection)
     objects_scaled = ''
     for sel in selection:
@@ -23,10 +23,14 @@ def return_objects_scaled(selection=None):
             if not (scale == 1.0 or scale == -1.0):
                 objects_scaled += f"{sel.name},{scale}\n"
                 sel.select_set(True)
+                if reset_scale:
+                    sel.scale.x = 1.0
+                    sel.scale.y = 1.0
+                    sel.scale.z = 1.0
                 continue
     return objects_scaled
 
-#to_print = return_objects_scaled()
+#to_print = return_objects_scaled(False)
 
 
 def list_objects_sizes(selection=None):
