@@ -1,6 +1,9 @@
 import bpy, os, re
 
-TABLE_INCH = 1.5
+TABLE_INCH = [1.5, 0.6]
+CHAR_SEPARATOR = '_'
+FLOAT_MAX_WIDTH = 2
+FLOAT_MAX_LOCATION = 3
 
 def auto_select(selection=None):
     if selection == None:
@@ -34,16 +37,51 @@ def return_objects_scaled(reset_scale=False, selection=None):
 
 def list_objects_sizes(selection=None):
     selection = selection = auto_select(selection)
-    result = 'name,x,y,x,area\n'
+    result = 'mueble,name,material,color,x,y,x,area,canto,posicion\n'
     for sel in selection:
-        dim_str = []
-        cms2 = []
-        for dim in sel.dimensions:
-            dim_float = round(dim*100, 2)
-            dim_str.append(str(dim_float))
-            if not dim_float == TABLE_INCH:
-                cms2.append(dim_float)
-        result += f"{sel.name},{','.join(dim_str)},{round(cms2[0]*cms2[1],2)}\n"
+        # to centimeters
+        position = ''
+        area = ''
+        material = ''
+        color = ''
+        mueble = ''
+        canto = ''
+        obj_name_arr = sel.name.split(CHAR_SEPARATOR)
+        # get dimensions
+        dim_x = round(sel.dimensions.x * 100, FLOAT_MAX_WIDTH)
+        dim_y = round(sel.dimensions.y * 100, FLOAT_MAX_WIDTH)
+        dim_z = round(sel.dimensions.z * 100, FLOAT_MAX_WIDTH)
+        # is vertical or horizontal
+        if dim_x in TABLE_INCH:
+            position = 'verticalat'
+            area = round(dim_y*dim_z, FLOAT_MAX_WIDTH)
+        elif dim_y in TABLE_INCH:
+            position = 'verticafront'
+            area = round(dim_x*dim_z, FLOAT_MAX_WIDTH)
+        elif dim_z in TABLE_INCH:
+            position = 'horizontal'
+            area = round(dim_x*dim_y, FLOAT_MAX_WIDTH)
+        # set material
+        if 'aglo' in obj_name_arr:
+            material = 'AGLOMERADO'
+        elif 'mdf' in obj_name_arr:
+            material = 'MDF'
+        # color
+        if 'oscuro' in obj_name_arr:
+            color = 'OSCURO'
+        elif 'claro' in obj_name_arr:
+            color = 'CLARO'
+        # mueble
+        if 'mesinf' in obj_name_arr:
+            mueble = 'COCINA_PRINCIPAL'
+        elif 'messup' in obj_name_arr:
+            mueble = 'COCINA_SUPERIOR'
+        elif 'mesisl' in obj_name_arr:
+            mueble = 'COCINA_ISLA'
+
+        canto = obj_name_arr[4]
+
+        result += f"{mueble},{sel.name},{material},{color},{dim_x},{dim_y},{dim_z},{area},{canto},{position}\n"
     return result
 
 #to_print = list_objects_sizes()
@@ -68,9 +106,9 @@ def fix_positions_objects(positione=False,selection=None):
     for sel in selection:
         changed += f'{sel.name},{sel.location}'
         if positione:
-            sel.location.x = round(sel.location.x, 3)
-            sel.location.y = round(sel.location.y, 3)
-            sel.location.z = round(sel.location.z, 3)
+            sel.location.x = round(sel.location.x, FLOAT_MAX_LOCATION)
+            sel.location.y = round(sel.location.y, FLOAT_MAX_LOCATION)
+            sel.location.z = round(sel.location.z, FLOAT_MAX_LOCATION)
             changed += f',{sel.location}'
         changed += f'\n'
     return changed
