@@ -45,14 +45,17 @@ def list_objects_sizes(selection=None):
 
 #to_print = list_objects_sizes()
 
-def replace_name(original, sustitute, selection=None):
+def replace_name(original, sustitute, replace=True, selection=None):
     selection = selection = auto_select(selection)
-    replaced = []
+    replaced = ''
     for sel in selection:
-        sel.name = sel.name.replace(original, sustitute)
+        if original in sel.name:
+            if replace:
+                sel.name = sel.name.replace(original, sustitute)
+            replaced += f'{sel.name}, {original}, {sustitute}\n'
     return replaced
 
-replace_name('canto_', 'canto')
+#replace_name('canto_', 'canto')
 
 
 # set path file
@@ -61,8 +64,8 @@ def export_file(content, file_name):
     file_path = os.path.join(tempFolder, '..', '..', 'csv_data', file_name)
     os.makedirs(os.path.dirname(file_path), exist_ok=True)
     # save result into file
-    file = open(str(file_path), "w")
-    file.write(content)
+    file = open(file_path, "w")
+    file.write(str(content))
     file.close()
     return file_path
 
