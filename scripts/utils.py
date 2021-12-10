@@ -18,7 +18,6 @@ def return_objects_scaled(reset_scale=False, selection=None):
     selection = auto_select(selection)
     objects_scaled = ''
     for sel in selection:
-        dim_str = []
         for scale in sel.scale:
             if not (scale == 1.0 or scale == -1.0):
                 objects_scaled += f"{sel.name},{scale}\n"
