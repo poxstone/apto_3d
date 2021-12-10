@@ -53,10 +53,11 @@ def replace_name(original, sustitute, replace=True, selection=None):
     selection = selection = auto_select(selection)
     replaced = ''
     for sel in selection:
-        if re.match(original,sel.name):
+        original_name = sel.name
+        if re.match(original, sel.name):
             if replace:
                 sel.name = re.sub(original, sustitute, sel.name)
-            replaced += f'{sel.name}, {original}, {sustitute}\n'
+            replaced += f'{sel.name},{original_name},{original},{sustitute}\n'
     return replaced
 
 #replace_name('canto_', 'canto')
