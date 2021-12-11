@@ -2,10 +2,18 @@ import bpy, os, re
 
 TABLE_INCH = [1.5, 0.6]
 CHAR_SEPARATOR = '[_.]'
-FLOAT_MAX_WIDTH = 2
+MILIMETERS = {
+    'NAME': 'mms',
+    'UNIDS': 1000,
+    'FLOAT': 0,
+}
+CENTIMETERS = {
+    'NAME': 'cms',
+    'UNIDS': 100,
+    'FLOAT': 2,
+}
 FLOAT_MAX_LOCATION = 3
-UNIDS = 100  # centimetro
-#UNIDS = 1000  # milimetros
+UNIDS = MILIMETERS
 NAME_OBJ = {
     'MUEBLE': {
         'NAME_POSITION': 0,
@@ -85,12 +93,15 @@ def return_objects_scaled(reset_scale=False, selection=None):
 #to_print = return_objects_scaled(False)
 
 
-def list_objects_csv(selection=None):
+def list_objects_csv(show_errors=True, selection=None):
     selection = selection = auto_select(selection)
-    result = 'mueble,name,material,color,ancho,largo,area,veta,canto,posicion,cantidad,x,y,z\n'
+    unid = UNIDS["NAME"]
+    result = f'mueble,name,abbr,material,color,ancho({unid}),largo({unid}),are({unid}),veta,canto,posicion,cantidad,x({unid}),y({unid}),z({unid})'
+    abbr_list = []
     for sel in selection:
         # to centimeters
         cantidad = 1
+        abbr = ''
         position = ''
         area = ''
         material = ''
@@ -102,9 +113,9 @@ def list_objects_csv(selection=None):
         largo = ''
         obj_name_arr = re.split(CHAR_SEPARATOR, sel.name)
         # get dimensions
-        dim_x = round(sel.dimensions.x * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.x else 0
-        dim_y = round(sel.dimensions.y * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.y else 0
-        dim_z = round(sel.dimensions.z * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.z else 0
+        dim_x = round(sel.dimensions.x * UNIDS['UNIDS'], UNIDS['FLOAT']) if sel.dimensions.x else 0
+        dim_y = round(sel.dimensions.y * UNIDS['UNIDS'], UNIDS['FLOAT']) if sel.dimensions.y else 0
+        dim_z = round(sel.dimensions.z * UNIDS['UNIDS'], UNIDS['FLOAT']) if sel.dimensions.z else 0
 
         try:
             # cantidad
@@ -157,15 +168,28 @@ def list_objects_csv(selection=None):
                 largo, ancho = ancho, largo
 
             # area
-            area = round(largo*ancho, FLOAT_MAX_WIDTH) if ancho and largo else 0
+            area = round(largo*ancho, UNIDS['FLOAT']) if ancho and largo else 0
 
-            result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position},{cantidad},{dim_x},{dim_y},{dim_z}\n"
+            # abbr
+            name = obj_name_arr[NAME_OBJ['NAME']['NAME_POSITION']]
+            abbr = f'{to_abbr(mueble,2)}_{to_abbr(color,1)}_{to_abbr(position,1)}_{to_abbr(name,2)}{len(abbr_list)}'
+            abbr_list.append(abbr)
+            # write row
+            for i in range(cantidad):
+                result += f"\n{mueble},{sel.name},{abbr},{material},{color},{ancho},{largo},{area},{veta},{canto},{position},1,{dim_x},{dim_y},{dim_z}"
         except Exception as e:
-            result += f"ERROR,{sel.name},{e}\n"
+            if show_errors:
+                result += f"\nERROR,{sel.name},{e}"
 
     return result
 
 #to_print = list_objects_sizes()
+def to_abbr(text, num_letters=1):
+    abbr = ''
+    t_arr = re.split('[_]', text)
+    for tx in t_arr:
+        abbr += tx[:num_letters].upper()
+    return abbr
 
 
 def replace_name(original, sustitute, replace=True, selection=None):
