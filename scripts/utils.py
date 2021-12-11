@@ -88,8 +88,8 @@ def list_objects_sizes(selection=None):
             if re.match('^veta', obj_name_arr[indx]):
                 veta_str = obj_name_arr[indx].replace('veta','')
                 veta_arr = list(veta_str)
-                if veta_arr[0] == 'A':
-                    veta = f'ANY'
+                if veta_arr[0] == 'N':
+                    veta = f'NO'
                 if veta_arr[0] == 'L':
                     veta = f'LARGO'
                 if veta_arr[0] == 'A':
@@ -122,7 +122,7 @@ def replace_name(original, sustitute, replace=True, selection=None):
         if re.match(f'.*{original}.*', sel.name):
             if replace:
                 sel.name = re.sub(original, sustitute, sel.name)
-            replaced += f'{sel.name},{original_name},{original},{sustitute}\n'
+            replaced += f'{original_name},{sel.name},{original},{sustitute}\n'
     return replaced
 
 #replace_name('canto_', 'canto')
