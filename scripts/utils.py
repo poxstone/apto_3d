@@ -82,7 +82,6 @@ def list_objects_sizes(selection=None):
         elif 'mesisl' in obj_name_arr:
             mueble = 'COCINA_ISLA'
 
-
         for indx in range(len(obj_name_arr)):
             # veta
             if re.match('^veta', obj_name_arr[indx]):
