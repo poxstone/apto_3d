@@ -23,8 +23,8 @@ NAME_OBJ = {
     'POSICION': {
         'NAME_POSITION': 2,
         'horizontal':   'HORIZONTAL',
-        'verticafront': 'VERICAL_FRONTAL',
-        'verticaback':  'VERICAL_POSTERIOR',
+        'verticalfront': 'VERICAL_FRONTAL',
+        'verticalback':  'VERICAL_POSTERIOR',
         'verticalat':   'VERICAL_LATERAL',
     },
     'COLOR': {
@@ -141,7 +141,7 @@ def list_objects_csv(selection=None):
                     largo, ancho = dim_z, dim_y
                 else:
                     largo, ancho = dim_y, dim_z
-            elif position == NAME_OBJ['POSICION']['verticafront']:
+            elif position == NAME_OBJ['POSICION']['verticalfront'] or position == NAME_OBJ['POSICION']['verticalback']:
                 if dim_z > dim_x:
                     largo, ancho = dim_z, dim_x
                 else:
