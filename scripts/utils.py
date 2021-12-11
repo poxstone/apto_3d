@@ -39,7 +39,7 @@ def return_objects_scaled(reset_scale=False, selection=None):
 
 def list_objects_sizes(selection=None):
     selection = selection = auto_select(selection)
-    result = 'mueble,name,material,color,x,y,x,area,veta,canto,posicion\n'
+    result = 'mueble,name,material,color,ancho,largo,area,veta,canto,posicion\n'
     for sel in selection:
         # to centimeters
         position = ''
@@ -49,21 +49,22 @@ def list_objects_sizes(selection=None):
         mueble = ''
         canto = ''
         veta = ''
+        ancho = ''
+        largo = ''
         obj_name_arr = sel.name.split(CHAR_SEPARATOR)
         # get dimensions
         dim_x = round(sel.dimensions.x * UNIDS, FLOAT_MAX_WIDTH)
         dim_y = round(sel.dimensions.y * UNIDS, FLOAT_MAX_WIDTH)
         dim_z = round(sel.dimensions.z * UNIDS, FLOAT_MAX_WIDTH)
+
         # is vertical or horizontal
         if dim_x in TABLE_INCH:
             position = 'verticalat'
-            area = round(dim_y*dim_z, FLOAT_MAX_WIDTH)
         elif dim_y in TABLE_INCH:
             position = 'verticafront'
-            area = round(dim_x*dim_z, FLOAT_MAX_WIDTH)
         elif dim_z in TABLE_INCH:
             position = 'horizontal'
-            area = round(dim_x*dim_y, FLOAT_MAX_WIDTH)
+
         # set material
         if 'aglo' in obj_name_arr:
             material = 'AGLOMERADO'
@@ -94,21 +95,58 @@ def list_objects_sizes(selection=None):
                 if veta_arr[0] == 'A':
                     veta = f'ANCHO'
 
+            # set ancho y largo
+            if position == 'verticalat':
+                if dim_z > dim_y:
+                    largo = dim_z
+                    ancho = dim_y
+                else:
+                    largo = dim_y
+                    ancho = dim_z
+            elif position == 'verticafront':
+                if dim_z > dim_x:
+                    largo = dim_z
+                    ancho = dim_x
+                else:
+                    largo = dim_x
+                    ancho = dim_z
+            elif position == 'horizontal':
+                if dim_y > dim_x:
+                    largo = dim_y
+                    ancho = dim_x
+                else:
+                    largo = dim_x
+                    ancho = dim_y
+            
             # canto
             if re.match('^canto', obj_name_arr[indx]):
                 canto_str = obj_name_arr[indx].replace('canto','')
                 canto_arr = list(canto_str)
                 canto_total = canto_arr[0]
+                canto_cmts = ''
                 canto_priority = ''
                 if len(canto_arr) >= 2:
                     if canto_arr[1] == 'L':
                         canto_priority = 'LARGO'
                     elif canto_arr[1] == 'A':
                         canto_priority = 'ANCHO'
+                # calculate length
+                if canto_total == 4:
+                    canto_cmts = (largo * 2) + (ancho * 2)
+                if canto_total == 3:
+                    canto_cmts = (largo * 2) + (ancho * 2)
+                
                 #if len(canto_arr) >= 3:
-                canto = f'cmts:{canto_total} - Prioridad{canto_priority}'
+                canto = f'cmts:{canto_total},{canto_cmts} - Prioridad{canto_priority}'
+            
+            # intercambia ancho para mantener las vetas en la tabla de corte final
+            if veta == 'ANCHO':
+                largo, ancho = ancho, largo
 
-        result += f"{mueble},{sel.name},{material},{color},{dim_x},{dim_y},{dim_z},{area},{veta},{canto},{position}\n"
+            # area
+            area = round(largo*ancho, FLOAT_MAX_WIDTH)
+
+        result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position}\n"
     return result
 
 #to_print = list_objects_sizes()
