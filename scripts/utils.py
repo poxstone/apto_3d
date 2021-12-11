@@ -6,6 +6,23 @@ FLOAT_MAX_WIDTH = 2
 FLOAT_MAX_LOCATION = 3
 UNIDS = 100  # centimetro
 #UNIDS = 1000  # milimetros
+MUEBLE = {
+    'NAME_POSITION': 0,
+    'mesinf':        'COCINA_PRINCIPAL',
+    'messup':        'COCINA_SUPERIOR',
+    'mesisl':        'COCINA_ISLA',
+    'armbig':        'ARMARIO_GRANDE',
+    'armsmall':      'ARMARIO_PEQUE',
+}
+COLOR = {
+    'oscuro':'OSCURO',
+    'claro':'CLARO',
+}
+
+
+
+
+
 
 def auto_select(selection=None):
     if selection == None:
@@ -39,7 +56,7 @@ def return_objects_scaled(reset_scale=False, selection=None):
 
 def list_objects_sizes(selection=None):
     selection = selection = auto_select(selection)
-    result = 'mueble,name,material,color,ancho,largo,area,veta,canto,posicion\n'
+    result = 'mueble,name,material,color,ancho,largo,area,veta,canto,posicion,x,y,z\n'
     for sel in selection:
         # to centimeters
         position = ''
@@ -75,17 +92,9 @@ def list_objects_sizes(selection=None):
             color = 'OSCURO'
         elif 'claro' in obj_name_arr:
             color = 'CLARO'
-        # mueble
-        if 'mesinf' in obj_name_arr:
-            mueble = 'COCINA_PRINCIPAL'
-        elif 'messup' in obj_name_arr:
-            mueble = 'COCINA_SUPERIOR'
-        elif 'mesisl' in obj_name_arr:
-            mueble = 'COCINA_ISLA'
-        elif 'armbig' in obj_name_arr:
-            mueble = 'ARMARIO_GRANDE'
-        elif 'armsmall' in obj_name_arr:
-            mueble = 'ARMARIO_PEQUE'
+
+        # mueble type
+        mueble = MUEBLE[obj_name_arr[MUEBLE['NAME_POSITION']]]
 
         for indx in range(len(obj_name_arr)):
             # veta
@@ -148,9 +157,9 @@ def list_objects_sizes(selection=None):
                 largo, ancho = ancho, largo
 
             # area
-            area = '{},{},{}'.format(largo, ancho, FLOAT_MAX_WIDTH)
+            area = round(largo*ancho, FLOAT_MAX_WIDTH) if ancho and largo else 0
 
-        result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position}\n"
+        result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position},{dim_x},{dim_y},{dim_z}\n"
     return result
 
 #to_print = list_objects_sizes()
