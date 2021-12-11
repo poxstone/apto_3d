@@ -53,9 +53,9 @@ def list_objects_sizes(selection=None):
         largo = ''
         obj_name_arr = sel.name.split(CHAR_SEPARATOR)
         # get dimensions
-        dim_x = round(sel.dimensions.x * UNIDS, FLOAT_MAX_WIDTH)
-        dim_y = round(sel.dimensions.y * UNIDS, FLOAT_MAX_WIDTH)
-        dim_z = round(sel.dimensions.z * UNIDS, FLOAT_MAX_WIDTH)
+        dim_x = round(sel.dimensions.x * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.x else 0
+        dim_y = round(sel.dimensions.y * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.y else 0
+        dim_z = round(sel.dimensions.z * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.z else 0
 
         # is vertical or horizontal
         if dim_x in TABLE_INCH:
@@ -82,6 +82,10 @@ def list_objects_sizes(selection=None):
             mueble = 'COCINA_SUPERIOR'
         elif 'mesisl' in obj_name_arr:
             mueble = 'COCINA_ISLA'
+        elif 'armbig' in obj_name_arr:
+            mueble = 'ARMARIO_GRANDE'
+        elif 'armsmall' in obj_name_arr:
+            mueble = 'ARMARIO_PEQUE'
 
         for indx in range(len(obj_name_arr)):
             # veta
@@ -144,7 +148,7 @@ def list_objects_sizes(selection=None):
                 largo, ancho = ancho, largo
 
             # area
-            area = round(largo*ancho, FLOAT_MAX_WIDTH)
+            area = '{},{},{}'.format(largo, ancho, FLOAT_MAX_WIDTH)
 
         result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position}\n"
     return result
