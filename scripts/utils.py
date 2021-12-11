@@ -4,6 +4,8 @@ TABLE_INCH = [1.5, 0.6]
 CHAR_SEPARATOR = '_'
 FLOAT_MAX_WIDTH = 2
 FLOAT_MAX_LOCATION = 3
+UNIDS = 100  # centimetro
+#UNIDS = 1000  # milimetros
 
 def auto_select(selection=None):
     if selection == None:
@@ -37,7 +39,7 @@ def return_objects_scaled(reset_scale=False, selection=None):
 
 def list_objects_sizes(selection=None):
     selection = selection = auto_select(selection)
-    result = 'mueble,name,material,color,x,y,x,area,canto,posicion\n'
+    result = 'mueble,name,material,color,x,y,x,area,veta,canto,posicion\n'
     for sel in selection:
         # to centimeters
         position = ''
@@ -46,11 +48,12 @@ def list_objects_sizes(selection=None):
         color = ''
         mueble = ''
         canto = ''
+        veta = ''
         obj_name_arr = sel.name.split(CHAR_SEPARATOR)
         # get dimensions
-        dim_x = round(sel.dimensions.x * 100, FLOAT_MAX_WIDTH)
-        dim_y = round(sel.dimensions.y * 100, FLOAT_MAX_WIDTH)
-        dim_z = round(sel.dimensions.z * 100, FLOAT_MAX_WIDTH)
+        dim_x = round(sel.dimensions.x * UNIDS, FLOAT_MAX_WIDTH)
+        dim_y = round(sel.dimensions.y * UNIDS, FLOAT_MAX_WIDTH)
+        dim_z = round(sel.dimensions.z * UNIDS, FLOAT_MAX_WIDTH)
         # is vertical or horizontal
         if dim_x in TABLE_INCH:
             position = 'verticalat'
@@ -79,9 +82,34 @@ def list_objects_sizes(selection=None):
         elif 'mesisl' in obj_name_arr:
             mueble = 'COCINA_ISLA'
 
-        canto = obj_name_arr[4]
 
-        result += f"{mueble},{sel.name},{material},{color},{dim_x},{dim_y},{dim_z},{area},{canto},{position}\n"
+        for indx in range(len(obj_name_arr)):
+            # veta
+            if re.match('^veta', obj_name_arr[indx]):
+                veta_str = obj_name_arr[indx].replace('veta','')
+                veta_arr = list(veta_str)
+                if veta_arr[0] == 'A':
+                    veta = f'ANY'
+                if veta_arr[0] == 'L':
+                    veta = f'LARGO'
+                if veta_arr[0] == 'A':
+                    veta = f'ANCHO'
+
+            # canto
+            if re.match('^canto', obj_name_arr[indx]):
+                canto_str = obj_name_arr[indx].replace('canto','')
+                canto_arr = list(canto_str)
+                canto_total = canto_arr[0]
+                canto_priority = ''
+                if len(canto_arr) >= 2:
+                    if canto_arr[1] == 'L':
+                        canto_priority = 'LARGO'
+                    elif canto_arr[1] == 'A':
+                        canto_priority = 'ANCHO'
+                #if len(canto_arr) >= 3:
+                canto = f'cmts:{canto_total} - Prioridad{canto_priority}'
+
+        result += f"{mueble},{sel.name},{material},{color},{dim_x},{dim_y},{dim_z},{area},{veta},{canto},{position}\n"
     return result
 
 #to_print = list_objects_sizes()
