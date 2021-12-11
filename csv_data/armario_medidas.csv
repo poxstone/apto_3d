@@ -1,69 +1,89 @@
-mueble,name,material,color,ancho,largo,area,veta,canto,posicion,x,y,z
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X10.001,AGLOMERADO,OSCURO,15.0,53.18,797.7,NO,cmts:4, - Prioridad,verticafront,53.18,1.5,15.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto4_cajonA_X10.002,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,1.48,40.0,10.0
-ARMARIO_GRANDE,armbig_aglo_verticaback_oscuro_vetaN_canto4_cajonA_X10.001,AGLOMERADO,OSCURO,10.0,51.7,517.0,NO,cmts:4, - Prioridad,verticafront,51.7,1.5,10.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto4_cajonA_X10.001,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,1.48,40.0,10.0
-ARMARIO_GRANDE,armbig_mdf_horizontal_oscuro_vetaN_canto0_cajonA_X10.001,MDF,OSCURO,,,0,NO,cmts:0, - Prioridad,,50.22,40.5,0.5
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.010,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.007,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.006,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.003,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.002,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.009,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.008,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.005,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X0.004,AGLOMERADO,OSCURO,,,0,NO,cmts:4, - Prioridad,,53.18,43.0,15.0
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneB001,AGLOMERADO,OSCURO,45.0,76.0,3420.0,NO,cmts:1, - PrioridadLARGO,horizontal,76.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneA.001,AGLOMERADO,OSCURO,48.5,183.0,8875.5,NO,cmts:1, - PrioridadLARGO,horizontal,183.0,48.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseA.001,AGLOMERADO,OSCURO,48.5,181.5,8802.75,NO,cmts:3, - PrioridadLARGO,horizontal,181.5,48.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseC.001,AGLOMERADO,OSCURO,48.5,183.0,8875.5,NO,cmts:3, - PrioridadLARGO,horizontal,183.0,48.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneC.001,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO,cmts:1, - PrioridadLARGO,horizontal,55.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneC.002,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO,cmts:1, - PrioridadLARGO,horizontal,55.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneC001.001,AGLOMERADO,OSCURO,45.0,67.5,3037.5,NO,cmts:1, - PrioridadLARGO,horizontal,67.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseB.001,AGLOMERADO,OSCURO,48.5,76.5,3710.25,NO,cmts:3, - PrioridadLARGO,horizontal,76.5,48.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneB.001,AGLOMERADO,OSCURO,48.5,78.0,3783.0,NO,cmts:1, - PrioridadLARGO,horizontal,78.0,48.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseD.001,AGLOMERADO,OSCURO,48.5,78.0,3783.0,NO,cmts:3, - PrioridadLARGO,horizontal,78.0,48.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.004,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO,cmts:2, - PrioridadLARGO,horizontal,55.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.003,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO,cmts:2, - PrioridadLARGO,horizontal,55.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.002,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO,cmts:2, - PrioridadLARGO,horizontal,55.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.001,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO,cmts:2, - PrioridadLARGO,horizontal,55.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneB.003,AGLOMERADO,OSCURO,40.0,45.0,1800.0,NO,cmts:2, - PrioridadANCHO,horizontal,40.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneB.001,AGLOMERADO,OSCURO,40.0,45.0,1800.0,NO,cmts:2, - PrioridadANCHO,horizontal,40.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneB.002,AGLOMERADO,OSCURO,40.0,45.0,1800.0,NO,cmts:2, - PrioridadANCHO,horizontal,40.0,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneA.003,AGLOMERADO,OSCURO,31.5,43.5,1370.25,NO,cmts:2, - PrioridadANCHO,horizontal,31.5,43.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneA.001,AGLOMERADO,OSCURO,31.5,43.5,1370.25,NO,cmts:2, - PrioridadANCHO,horizontal,31.5,43.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneA.002,AGLOMERADO,OSCURO,31.5,43.5,1370.25,NO,cmts:2, - PrioridadANCHO,horizontal,31.5,43.5,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.005,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.004,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.003,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.006,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.002,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.007,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.008,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.009,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.010,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.001,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO,cmts:2, - PrioridadANCHO,horizontal,34.5,45.0,1.5
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto3L1_baseA.002,AGLOMERADO,OSCURO,48.5,200.0,9700.0,NO,cmts:3, - PrioridadLARGO,verticalat,1.5,48.5,200.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaA_canto4_puertaB.001,AGLOMERADO,CLARO,130.0,15.0,1950.0,ANCHO,cmts:4, - Prioridad,verticafront,130.0,1.5,15.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto3L1_baseA.001,AGLOMERADO,OSCURO,48.5,200.0,9700.0,NO,cmts:3, - PrioridadLARGO,verticalat,1.5,48.5,200.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.003,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,cmts:4, - Prioridad,verticafront,65.5,1.5,199.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.002,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,cmts:4, - Prioridad,verticafront,65.5,1.5,199.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.004,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,cmts:4, - Prioridad,verticafront,65.5,1.5,199.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.001,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,cmts:4, - Prioridad,verticafront,65.5,1.5,199.0
-ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaA_canto4_puertaB.002,AGLOMERADO,CLARO,130.0,15.0,1950.0,ANCHO,cmts:4, - Prioridad,verticafront,130.0,1.5,15.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneB.001,AGLOMERADO,OSCURO,45.05,183.53,8268.03,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.05,183.53
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneC.003,AGLOMERADO,OSCURO,45.0,200.0,9000.0,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,200.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneC.001,AGLOMERADO,OSCURO,45.0,200.0,9000.0,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,200.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneC.002,AGLOMERADO,OSCURO,45.0,200.0,9000.0,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,200.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneB.002,AGLOMERADO,OSCURO,45.05,183.53,8268.03,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.05,183.53
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.001,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,13.5
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.004,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,13.5
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.003,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,13.5
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.002,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,13.5
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneF.002,AGLOMERADO,OSCURO,15.0,48.5,727.5,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,48.5,15.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneF.001,AGLOMERADO,OSCURO,15.0,48.5,727.5,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,48.5,15.0
-ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneD.001,AGLOMERADO,OSCURO,15.0,45.0,675.0,NO,cmts:1, - PrioridadLARGO,verticalat,1.5,45.0,15.0
-ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseA.002,MDF,OSCURO,78.0,210.0,16380.0,NO,cmts:0, - Prioridad,verticafront,78.0,0.6,210.0
-ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseC.001,MDF,OSCURO,8.0,183.0,1464.0,NO,cmts:0, - Prioridad,verticafront,183.0,0.6,8.0
-ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseD.001,MDF,OSCURO,8.0,78.0,624.0,NO,cmts:0, - Prioridad,verticafront,78.0,0.6,8.0
-ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseA.001,MDF,OSCURO,183.0,210.0,38430.0,NO,cmts:0, - Prioridad,verticafront,183.0,0.6,210.0
+mueble,name,material,color,ancho,largo,area,veta,canto,posicion,cantidad,x,y,z
+ARMARIO_PEQUE,armsmall_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X5.002,AGLOMERADO,OSCURO,15.0,53.18,797.7,NO_TIENE,canto4,VERICAL_FRONTAL,5,53.18,1.5,15.0
+ARMARIO_PEQUE,armsmall_aglo_verticalat_oscuro_vetaN_canto2L_cajonA_X5.002,AGLOMERADO,OSCURO,10.0,40.0,400.0,NO_TIENE,canto2L,VERICAL_LATERAL,5,1.48,40.0,10.0
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto4_cajonA_X5.001,AGLOMERADO,OSCURO,1.5,51.7,77.55,NO_TIENE,canto4,HORIZONTAL,5,51.7,1.5,10.0
+ARMARIO_PEQUE,armsmall_aglo_verticalat_oscuro_vetaN_canto2L_cajonA_X5.001,AGLOMERADO,OSCURO,10.0,40.0,400.0,NO_TIENE,canto2L,VERICAL_LATERAL,5,1.48,40.0,10.0
+ARMARIO_PEQUE,armsmall_mdf_horizontal_oscuro_vetaN_canto0_cajonA_X5.001,MDF,OSCURO,40.5,50.22,2033.91,NO_TIENE,canto0,HORIZONTAL,5,50.22,40.5,0.6
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneD.002,AGLOMERADO,OSCURO,45.0,56.0,2520.0,NO_TIENE,canto2A,HORIZONTAL,1,56.0,45.0,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto1L_paneA.001,AGLOMERADO,OSCURO,45.0,112.5,5062.5,NO_TIENE,canto1L,HORIZONTAL,1,112.5,45.0,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto4L4_paneA.001,AGLOMERADO,OSCURO,48.5,112.5,5456.25,NO_TIENE,canto4L4,HORIZONTAL,1,112.5,48.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto4_baseC.001,AGLOMERADO,OSCURO,48.5,112.5,5456.25,NO_TIENE,canto4,HORIZONTAL,1,112.5,48.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneD.001,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2A,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneC.001,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2A,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneC.002,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2A,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneA.003,AGLOMERADO,OSCURO,20.0,43.5,870.0,NO_TIENE,canto2A,HORIZONTAL,1,20.0,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneA.001,AGLOMERADO,OSCURO,20.0,43.5,870.0,NO_TIENE,canto2A,HORIZONTAL,1,20.0,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneA.002,AGLOMERADO,OSCURO,20.0,43.5,870.0,NO_TIENE,canto2A,HORIZONTAL,1,20.0,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneB.005,AGLOMERADO,OSCURO,34.5,43.5,1500.75,NO_TIENE,canto2A,HORIZONTAL,1,34.5,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneB.004,AGLOMERADO,OSCURO,34.5,43.5,1500.75,NO_TIENE,canto2A,HORIZONTAL,1,34.5,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneB.003,AGLOMERADO,OSCURO,34.5,43.5,1500.75,NO_TIENE,canto2A,HORIZONTAL,1,34.5,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneB.001,AGLOMERADO,OSCURO,34.5,43.5,1500.75,NO_TIENE,canto2A,HORIZONTAL,1,34.5,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_horizontal_oscuro_vetaN_canto2A_paneB.002,AGLOMERADO,OSCURO,34.5,43.5,1500.75,NO_TIENE,canto2A,HORIZONTAL,1,34.5,43.5,1.5
+ARMARIO_PEQUE,armsmall_aglo_verticalat_claro_vetaN_canto2L_paneA.001,AGLOMERADO,CLARO,48.5,218.0,10573.0,NO_TIENE,canto2L,VERICAL_LATERAL,1,1.5,48.5,218.0
+ARMARIO_PEQUE,armsmall_aglo_verticalat_claro_vetaN_canto2L_paneA.002,AGLOMERADO,CLARO,48.5,218.0,10573.0,NO_TIENE,canto2L,VERICAL_LATERAL,1,1.5,48.5,218.0
+ARMARIO_PEQUE,armsmall_mdf_verticaback_oscuro_vetaN_canto0_baseA.001,MDF,OSCURO,,,0,NO_TIENE,canto0,VERICAL_POSTERIOR,1,115.5,0.6,218.0
+ARMARIO_PEQUE,armsmall_aglo_verticafront_claro_vetaL_canto4_puertaA.001,AGLOMERADO,CLARO,57.0,215.5,12283.5,LARGO,canto4,VERICAL_FRONTAL,1,57.0,1.5,215.5
+ARMARIO_PEQUE,armsmall_aglo_verticafront_claro_vetaL_canto4_puertaA.002,AGLOMERADO,CLARO,57.0,215.5,12283.5,LARGO,canto4,VERICAL_FRONTAL,1,57.0,1.5,215.5
+ARMARIO_PEQUE,armsmall_aglo_verticalat_oscuro_vetaN_canto1L_paneA.017,AGLOMERADO,OSCURO,45.0,198.5,8932.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,198.5
+ARMARIO_PEQUE,armsmall_aglo_verticalat_oscuro_vetaN_canto1L_paneA.001,AGLOMERADO,OSCURO,45.0,183.5,8257.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,183.5
+ARMARIO_PEQUE,armsmall_aglo_verticalat_oscuro_vetaN_canto1A_paneC.002,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO_TIENE,canto1A,VERICAL_LATERAL,1,1.5,45.0,13.5
+ARMARIO_PEQUE,armsmall_aglo_verticalat_oscuro_vetaN_canto1A_paneC.001,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO_TIENE,canto1A,VERICAL_LATERAL,1,1.5,45.0,13.5
+ARMARIO_GRANDE,armbig_aglo_verticafront_oscuro_vetaN_canto4_cajonA_X10.001,AGLOMERADO,OSCURO,15.0,53.18,797.7,NO_TIENE,canto4,VERICAL_FRONTAL,10,53.18,1.5,15.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto4_cajonA_X10.002,AGLOMERADO,OSCURO,10.0,40.0,400.0,NO_TIENE,canto4,VERICAL_LATERAL,10,1.48,40.0,10.0
+ARMARIO_GRANDE,armbig_aglo_verticaback_oscuro_vetaN_canto4_cajonA_X10.001,AGLOMERADO,OSCURO,,,0,NO_TIENE,canto4,VERICAL_POSTERIOR,10,51.7,1.5,10.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto4_cajonA_X10.001,AGLOMERADO,OSCURO,10.0,40.0,400.0,NO_TIENE,canto4,VERICAL_LATERAL,10,1.48,40.0,10.0
+ARMARIO_GRANDE,armbig_mdf_horizontal_oscuro_vetaN_canto0_cajonA_X10.001,MDF,OSCURO,40.5,50.22,2033.91,NO_TIENE,canto0,HORIZONTAL,10,50.22,40.5,0.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneB.001,AGLOMERADO,OSCURO,45.0,76.0,3420.0,NO_TIENE,canto1L,HORIZONTAL,1,76.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneA.001,AGLOMERADO,OSCURO,48.5,183.0,8875.5,NO_TIENE,canto1L,HORIZONTAL,1,183.0,48.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseA.001,AGLOMERADO,OSCURO,48.5,181.5,8802.75,NO_TIENE,canto3L1,HORIZONTAL,1,181.5,48.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseC.001,AGLOMERADO,OSCURO,48.5,183.0,8875.5,NO_TIENE,canto3L1,HORIZONTAL,1,183.0,48.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneC.001,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto1L,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneC.002,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto1L,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneC001.001,AGLOMERADO,OSCURO,45.0,67.5,3037.5,NO_TIENE,canto1L,HORIZONTAL,1,67.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseB.001,AGLOMERADO,OSCURO,48.5,76.5,3710.25,NO_TIENE,canto3L1,HORIZONTAL,1,76.5,48.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto1L_paneB.002,AGLOMERADO,OSCURO,48.5,78.0,3783.0,NO_TIENE,canto1L,HORIZONTAL,1,78.0,48.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto3L1_baseD.001,AGLOMERADO,OSCURO,48.5,78.0,3783.0,NO_TIENE,canto3L1,HORIZONTAL,1,78.0,48.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.004,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2L,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.003,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2L,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.002,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2L,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2L_paneD.001,AGLOMERADO,OSCURO,45.0,55.0,2475.0,NO_TIENE,canto2L,HORIZONTAL,1,55.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneB.003,AGLOMERADO,OSCURO,40.0,45.0,1800.0,NO_TIENE,canto2A,HORIZONTAL,1,40.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneB.001,AGLOMERADO,OSCURO,40.0,45.0,1800.0,NO_TIENE,canto2A,HORIZONTAL,1,40.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneB.002,AGLOMERADO,OSCURO,40.0,45.0,1800.0,NO_TIENE,canto2A,HORIZONTAL,1,40.0,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneA.003,AGLOMERADO,OSCURO,31.5,43.5,1370.25,NO_TIENE,canto2A,HORIZONTAL,1,31.5,43.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneA.001,AGLOMERADO,OSCURO,31.5,43.5,1370.25,NO_TIENE,canto2A,HORIZONTAL,1,31.5,43.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneA.002,AGLOMERADO,OSCURO,31.5,43.5,1370.25,NO_TIENE,canto2A,HORIZONTAL,1,31.5,43.5,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.005,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.004,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.003,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.006,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.002,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.007,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.008,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.009,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.010,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_horizontal_oscuro_vetaN_canto2A_paneC.001,AGLOMERADO,OSCURO,34.5,45.0,1552.5,NO_TIENE,canto2A,HORIZONTAL,1,34.5,45.0,1.5
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto3L1_baseA.002,AGLOMERADO,OSCURO,48.5,200.0,9700.0,NO_TIENE,canto3L1,VERICAL_LATERAL,1,1.5,48.5,200.0
+ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaA_canto4_puertaB.001,AGLOMERADO,CLARO,130.0,15.0,1950.0,ANCHO,canto4,VERICAL_FRONTAL,1,130.0,1.5,15.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto3L1_baseA.001,AGLOMERADO,OSCURO,48.5,200.0,9700.0,NO_TIENE,canto3L1,VERICAL_LATERAL,1,1.5,48.5,200.0
+ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.003,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,canto4,VERICAL_FRONTAL,1,65.5,1.5,199.0
+ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.002,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,canto4,VERICAL_FRONTAL,1,65.5,1.5,199.0
+ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.004,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,canto4,VERICAL_FRONTAL,1,65.5,1.5,199.0
+ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaL_canto4_puertaA.001,AGLOMERADO,CLARO,65.5,199.0,13034.5,LARGO,canto4,VERICAL_FRONTAL,1,65.5,1.5,199.0
+ARMARIO_GRANDE,armbig_aglo_verticafront_claro_vetaA_canto4_puertaB.002,AGLOMERADO,CLARO,130.0,15.0,1950.0,ANCHO,canto4,VERICAL_FRONTAL,1,130.0,1.5,15.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneB.001,AGLOMERADO,OSCURO,45.05,183.53,8268.03,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.05,183.53
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneC.003,AGLOMERADO,OSCURO,45.0,200.0,9000.0,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,200.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneC.001,AGLOMERADO,OSCURO,45.0,200.0,9000.0,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,200.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneC.002,AGLOMERADO,OSCURO,45.0,200.0,9000.0,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,200.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneB.002,AGLOMERADO,OSCURO,45.05,183.53,8268.03,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.05,183.53
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.001,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,13.5
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.004,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,13.5
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.003,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,13.5
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneE.002,AGLOMERADO,OSCURO,13.5,45.0,607.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,13.5
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneF.002,AGLOMERADO,OSCURO,15.0,48.5,727.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,48.5,15.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneF.001,AGLOMERADO,OSCURO,15.0,48.5,727.5,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,48.5,15.0
+ARMARIO_GRANDE,armbig_aglo_verticalat_oscuro_vetaN_canto1L_paneD.001,AGLOMERADO,OSCURO,15.0,45.0,675.0,NO_TIENE,canto1L,VERICAL_LATERAL,1,1.5,45.0,15.0
+ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseA.002,MDF,OSCURO,,,0,NO_TIENE,canto0,VERICAL_POSTERIOR,1,78.0,0.6,210.0
+ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseC.001,MDF,OSCURO,,,0,NO_TIENE,canto0,VERICAL_POSTERIOR,1,183.0,0.6,8.0
+ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseD.001,MDF,OSCURO,,,0,NO_TIENE,canto0,VERICAL_POSTERIOR,1,78.0,0.6,8.0
+ARMARIO_GRANDE,armbig_mdf_verticaback_oscuro_vetaN_canto0_baseA.001,MDF,OSCURO,,,0,NO_TIENE,canto0,VERICAL_POSTERIOR,1,183.0,0.6,210.0

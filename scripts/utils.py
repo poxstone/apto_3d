@@ -1,28 +1,59 @@
 import bpy, os, re
 
 TABLE_INCH = [1.5, 0.6]
-CHAR_SEPARATOR = '_'
+CHAR_SEPARATOR = '[_.]'
 FLOAT_MAX_WIDTH = 2
 FLOAT_MAX_LOCATION = 3
 UNIDS = 100  # centimetro
 #UNIDS = 1000  # milimetros
-MUEBLE = {
-    'NAME_POSITION': 0,
-    'mesinf':        'COCINA_PRINCIPAL',
-    'messup':        'COCINA_SUPERIOR',
-    'mesisl':        'COCINA_ISLA',
-    'armbig':        'ARMARIO_GRANDE',
-    'armsmall':      'ARMARIO_PEQUE',
+NAME_OBJ = {
+    'MUEBLE': {
+        'NAME_POSITION': 0,
+        'mesinf':        'COCINA_PRINCIPAL',
+        'messup':        'COCINA_SUPERIOR',
+        'mesisl':        'COCINA_ISLA',
+        'armbig':        'ARMARIO_GRANDE',
+        'armsmall':      'ARMARIO_PEQUE',
+    },
+    'MATERIAL': {
+        'NAME_POSITION': 1,
+        'aglo':          'AGLOMERADO',
+        'mdf':           'MDF',
+    },
+    'POSICION': {
+        'NAME_POSITION': 2,
+        'horizontal':   'HORIZONTAL',
+        'verticafront': 'VERICAL_FRONTAL',
+        'verticaback':  'VERICAL_POSTERIOR',
+        'verticalat':   'VERICAL_LATERAL',
+    },
+    'COLOR': {
+        'NAME_POSITION': 3,
+        'claro':         'CLARO',
+        'oscuro':        'OSCURO',
+    },
+    'VETA': {
+        'NAME_POSITION': 4,
+        'vetaN':        'NO_TIENE',
+        'vetaA':        'ANCHO',
+        'vetaL':        'LARGO',
+    },
+    'CANTO': {
+        'NAME_POSITION': 5,
+        'REGEX':        '^canto[0-4]([LA][1-4]?)?$',
+        'L':            'LARGO',
+        'A':            'ANCHO',
+    },
+    'NAME': {
+        'NAME_POSITION': 6,
+        'REGEX':        '^(pane|cajon|base)[A-Z]',
+    },
+    'CANTIDAD': {
+        'NAME_POSITION': 7,
+        'PREFIX':       'X',
+        'REGEX':        '^X[0-9]{1,4}',
+    },
 }
-COLOR = {
-    'oscuro':'OSCURO',
-    'claro':'CLARO',
-}
-
-
-
-
-
 
 def auto_select(selection=None):
     if selection == None:
@@ -54,11 +85,12 @@ def return_objects_scaled(reset_scale=False, selection=None):
 #to_print = return_objects_scaled(False)
 
 
-def list_objects_sizes(selection=None):
+def list_objects_csv(selection=None):
     selection = selection = auto_select(selection)
-    result = 'mueble,name,material,color,ancho,largo,area,veta,canto,posicion,x,y,z\n'
+    result = 'mueble,name,material,color,ancho,largo,area,veta,canto,posicion,cantidad,x,y,z\n'
     for sel in selection:
         # to centimeters
+        cantidad = 1
         position = ''
         area = ''
         material = ''
@@ -68,89 +100,57 @@ def list_objects_sizes(selection=None):
         veta = ''
         ancho = ''
         largo = ''
-        obj_name_arr = sel.name.split(CHAR_SEPARATOR)
+        obj_name_arr = re.split(CHAR_SEPARATOR, sel.name)
         # get dimensions
         dim_x = round(sel.dimensions.x * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.x else 0
         dim_y = round(sel.dimensions.y * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.y else 0
         dim_z = round(sel.dimensions.z * UNIDS, FLOAT_MAX_WIDTH) if sel.dimensions.z else 0
 
-        # is vertical or horizontal
-        if dim_x in TABLE_INCH:
-            position = 'verticalat'
-        elif dim_y in TABLE_INCH:
-            position = 'verticafront'
-        elif dim_z in TABLE_INCH:
-            position = 'horizontal'
+        try:
+            # cantidad
+            if len(obj_name_arr) >= NAME_OBJ['CANTIDAD']['NAME_POSITION']:
+                cantidad = obj_name_arr[NAME_OBJ['CANTIDAD']['NAME_POSITION']]
+                if re.match(NAME_OBJ['CANTIDAD']['REGEX'], cantidad):
+                    cantidad = int(cantidad.split(NAME_OBJ['CANTIDAD']['PREFIX'])[1])
+                else:
+                    cantidad = 1
+            if int(cantidad) == 0:
+                continue
 
-        # set material
-        if 'aglo' in obj_name_arr:
-            material = 'AGLOMERADO'
-        elif 'mdf' in obj_name_arr:
-            material = 'MDF'
-        # color
-        if 'oscuro' in obj_name_arr:
-            color = 'OSCURO'
-        elif 'claro' in obj_name_arr:
-            color = 'CLARO'
-
-        # mueble type
-        mueble = MUEBLE[obj_name_arr[MUEBLE['NAME_POSITION']]]
-
-        for indx in range(len(obj_name_arr)):
+            # is vertical or horizontal
+            position = NAME_OBJ['POSICION'][obj_name_arr[
+                                    NAME_OBJ['POSICION']['NAME_POSITION']]]
+            # set material
+            material = NAME_OBJ['MATERIAL'][obj_name_arr[
+                                    NAME_OBJ['MATERIAL']['NAME_POSITION']]]
+            # color
+            color = NAME_OBJ['COLOR'][obj_name_arr[
+                                    NAME_OBJ['COLOR']['NAME_POSITION']]]
+            # mueble type
+            mueble = NAME_OBJ['MUEBLE'][obj_name_arr[
+                                    NAME_OBJ['MUEBLE']['NAME_POSITION']]]
             # veta
-            if re.match('^veta', obj_name_arr[indx]):
-                veta_str = obj_name_arr[indx].replace('veta','')
-                veta_arr = list(veta_str)
-                if veta_arr[0] == 'N':
-                    veta = f'NO'
-                if veta_arr[0] == 'L':
-                    veta = f'LARGO'
-                if veta_arr[0] == 'A':
-                    veta = f'ANCHO'
+            veta = NAME_OBJ['VETA'][obj_name_arr[
+                                    NAME_OBJ['VETA']['NAME_POSITION']]]
+            # canto
+            canto = obj_name_arr[NAME_OBJ['CANTO']['NAME_POSITION']]
 
             # set ancho y largo
-            if position == 'verticalat':
+            if position == NAME_OBJ['POSICION']['verticalat']:
                 if dim_z > dim_y:
-                    largo = dim_z
-                    ancho = dim_y
+                    largo, ancho = dim_z, dim_y
                 else:
-                    largo = dim_y
-                    ancho = dim_z
-            elif position == 'verticafront':
+                    largo, ancho = dim_y, dim_z
+            elif position == NAME_OBJ['POSICION']['verticafront']:
                 if dim_z > dim_x:
-                    largo = dim_z
-                    ancho = dim_x
+                    largo, ancho = dim_z, dim_x
                 else:
-                    largo = dim_x
-                    ancho = dim_z
-            elif position == 'horizontal':
+                    largo, ancho = dim_x, dim_z
+            elif position == NAME_OBJ['POSICION']['horizontal']:
                 if dim_y > dim_x:
-                    largo = dim_y
-                    ancho = dim_x
+                    largo, ancho = dim_y, dim_x
                 else:
-                    largo = dim_x
-                    ancho = dim_y
-            
-            # canto
-            if re.match('^canto', obj_name_arr[indx]):
-                canto_str = obj_name_arr[indx].replace('canto','')
-                canto_arr = list(canto_str)
-                canto_total = canto_arr[0]
-                canto_cmts = ''
-                canto_priority = ''
-                if len(canto_arr) >= 2:
-                    if canto_arr[1] == 'L':
-                        canto_priority = 'LARGO'
-                    elif canto_arr[1] == 'A':
-                        canto_priority = 'ANCHO'
-                # calculate length
-                if canto_total == 4:
-                    canto_cmts = (largo * 2) + (ancho * 2)
-                if canto_total == 3:
-                    canto_cmts = (largo * 2) + (ancho * 2)
-                
-                #if len(canto_arr) >= 3:
-                canto = f'cmts:{canto_total},{canto_cmts} - Prioridad{canto_priority}'
+                    largo, ancho = dim_x, dim_y
             
             # intercambia ancho para mantener las vetas en la tabla de corte final
             if veta == 'ANCHO':
@@ -159,10 +159,14 @@ def list_objects_sizes(selection=None):
             # area
             area = round(largo*ancho, FLOAT_MAX_WIDTH) if ancho and largo else 0
 
-        result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position},{dim_x},{dim_y},{dim_z}\n"
+            result += f"{mueble},{sel.name},{material},{color},{ancho},{largo},{area},{veta},{canto},{position},{cantidad},{dim_x},{dim_y},{dim_z}\n"
+        except Exception as e:
+            result += f"ERROR,{sel.name},{e}\n"
+
     return result
 
 #to_print = list_objects_sizes()
+
 
 def replace_name(original, sustitute, replace=True, selection=None):
     selection = selection = auto_select(selection)
