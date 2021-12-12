@@ -13,15 +13,15 @@ CENTIMETERS = {
     'FLOAT': 2,
 }
 FLOAT_MAX_LOCATION = 3
-UNIDS = MILIMETERS
+UNIDS = CENTIMETERS
 NAME_OBJ = {
     'MUEBLE': {
         'NAME_POSITION': 0,
         'mesinf':        'COCINA_PRINCIPAL',
         'messup':        'COCINA_SUPERIOR',
         'mesisl':        'COCINA_ISLA',
-        'armbig':        'ARMARIO_GRANDE',
-        'armsmall':      'ARMARIO_PEQUE',
+        'armbg':        'ARMARIO_GRANDE',
+        'armsm':      'ARMARIO_PEQUE',
     },
     'MATERIAL': {
         'NAME_POSITION': 1,
@@ -37,8 +37,8 @@ NAME_OBJ = {
     },
     'COLOR': {
         'NAME_POSITION': 3,
-        'claro':         'CLARO',
-        'oscuro':        'OSCURO',
+        'cla':         'CLARO',
+        'osc':        'OSCURO',
     },
     'VETA': {
         'NAME_POSITION': 4,
@@ -49,7 +49,7 @@ NAME_OBJ = {
     'CANTO': {
         'NAME_POSITION': 5,
         'REGEX':        '^canto([A][CON]){2}([L][CON]){2}$',
-        'PREFIX':        'canto',
+        'PREFIX':        'cnt',
         'L':             'LARGO',
         'A':             'ANCHO',
         'O':             'OSCURO',
