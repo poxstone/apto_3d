@@ -3,12 +3,12 @@ import bpy, os, re
 TABLE_INCH = [1.5, 0.6]
 CHAR_SEPARATOR = '[_.]'
 MILIMETERS = {
-    'NAME': 'mms',
+    'NAME': 'mm',
     'UNIDS': 1000,
     'FLOAT': 0,
 }
 CENTIMETERS = {
-    'NAME': 'cms',
+    'NAME': 'cm',
     'UNIDS': 100,
     'FLOAT': 2,
 }
@@ -48,9 +48,13 @@ NAME_OBJ = {
     },
     'CANTO': {
         'NAME_POSITION': 5,
-        'REGEX':        '^canto[0-4]([LA][1-4]?)?$',
-        'L':            'LARGO',
-        'A':            'ANCHO',
+        'REGEX':        '^canto([A][CON]){2}([L][CON]){2}$',
+        'PREFIX':        'canto',
+        'L':             'LARGO',
+        'A':             'ANCHO',
+        'O':             'OSCURO',
+        'C':             'CLARO',
+        'N':             'NINGUNO',
     },
     'NAME': {
         'NAME_POSITION': 6,
@@ -96,7 +100,7 @@ def return_objects_scaled(reset_scale=False, selection=None):
 def list_objects_csv(show_errors=True, selection=None):
     selection = selection = auto_select(selection)
     unid = UNIDS["NAME"]
-    result = f'mueble,name,abbr,material,color,ancho({unid}),largo({unid}),are({unid}),veta,canto,posicion,cantidad,x({unid}),y({unid}),z({unid})'
+    result = f'mueble,name,abbr,material,color,ancho({unid}),largo({unid}),are({unid}),veta,canto,canto_len({unid}),posicion,cantidad,x({unid}),y({unid}),z({unid})'
     abbr_list = []
     for sel in selection:
         # to centimeters
@@ -143,9 +147,6 @@ def list_objects_csv(show_errors=True, selection=None):
             # veta
             veta = NAME_OBJ['VETA'][obj_name_arr[
                                     NAME_OBJ['VETA']['NAME_POSITION']]]
-            # canto
-            canto = obj_name_arr[NAME_OBJ['CANTO']['NAME_POSITION']]
-
             # set ancho y largo
             if position == NAME_OBJ['POSICION']['verticalat']:
                 if dim_z > dim_y:
@@ -170,13 +171,30 @@ def list_objects_csv(show_errors=True, selection=None):
             # area
             area = round(largo*ancho, UNIDS['FLOAT']) if ancho and largo else 0
 
+            # canto
+            canto_spell = obj_name_arr[NAME_OBJ['CANTO']['NAME_POSITION']].replace(NAME_OBJ['CANTO']['PREFIX'], '')
+            # split each 2 char
+            canto_arr = []
+            for indx in range(0, len(canto_spell), 2):
+                canto_arr.append(canto_spell[indx : indx + 2])
+            canto_len = 0
+            # calcule canto lenght
+            for lad_grp in canto_arr:
+                lad = lad_grp[0]
+                col = lad_grp[1]
+                if col == 'N':
+                    continue
+                long = ancho if lad == 'A' else largo
+                canto_len += long
+                canto += f"{NAME_OBJ['CANTO'][lad]}/{NAME_OBJ['CANTO'][col]}:{long};"
+
             # abbr
             name = obj_name_arr[NAME_OBJ['NAME']['NAME_POSITION']]
             abbr = f'{to_abbr(mueble,2)}_{to_abbr(color,1)}_{to_abbr(position,1)}_{to_abbr(name,2)}{len(abbr_list)}'
             abbr_list.append(abbr)
             # write row
             for i in range(cantidad):
-                result += f"\n{mueble},{sel.name},{abbr},{material},{color},{ancho},{largo},{area},{veta},{canto},{position},1,{dim_x},{dim_y},{dim_z}"
+                result += f"\n{mueble},{sel.name},{abbr},{material},{color},{ancho},{largo},{area},{veta},{canto},{canto_len},{position},1,{dim_x},{dim_y},{dim_z}"
         except Exception as e:
             if show_errors:
                 result += f"\nERROR,{sel.name},{e}"
