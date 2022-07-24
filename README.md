@@ -12,6 +12,11 @@
 source varibles.sh;
 ```
 
+## Terraform
+```bash
+source ./main.sh "export_variables";
+```
+
 ## Build
 
 - Render frame:
