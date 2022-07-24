@@ -1,11 +1,11 @@
-ARG MASTER_IMAGE="gcr.io/zinc-anvil-320815/blender-master:v2.9.3"
+ARG MASTER_IMAGE="gcr.io/scientific-crow-353414/blender-master:v2.9.3"
 FROM ${MASTER_IMAGE}
 
 # args
-ARG GOOGLE_CLOUD_PROJECT="zinc-anvil-320815"
-ARG ACCOUNTSERVICE_EMAIL="blender@zinc-anvil-320815.iam.gserviceaccount.com"
+ARG GOOGLE_CLOUD_PROJECT="scientific-crow-353414"
+ARG ACCOUNTSERVICE_EMAIL="sa-3dmodels@scientific-crow-353414.iam.gserviceaccount.com"
 ARG GCP_CREDENTIALS_FILE="./service-key.json"
-ARG BUCKET_EXPORT="gs://zinc-anvil-320815-3dmodels/"
+ARG BUCKET_EXPORT="gs://scientific-crow-353414-3dmodels/"
 ARG ENTRYPOINT_FILE="./entrypoint.sh"
 
 ENV GOOGLE_CLOUD_PROJECT="${GOOGLE_CLOUD_PROJECT}"

@@ -8,3 +8,4 @@ internal_render/*
 *.blend1?
 .git/*
 referencias/*
+terraform/*

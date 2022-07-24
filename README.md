@@ -12,9 +12,13 @@
 source varibles.sh;
 ```
 
-## Terraform
+## Terraform (0.13)
 ```bash
 source ./main.sh "export_variables";
+cd ./terraform;
+terraform init;
+terraform plan;
+terraform apply;
 ```
 
 ## Build
