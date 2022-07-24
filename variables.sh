@@ -1,4 +1,4 @@
-export GOOGLE_CLOUD_PROJECT="zinc-anvil-320815";
+export GOOGLE_CLOUD_PROJECT="scientific-crow-353414";
 export BUCKET_EXPORT="gs://${GOOGLE_CLOUD_PROJECT}-3dmodels";
 export BUCKET_MODEL_SAVED="${BUCKET_EXPORT}/3dmodel/";
 
