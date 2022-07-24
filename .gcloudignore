@@ -9,5 +9,5 @@
 referencias/*
 render/*
 .git/*
-terraform/*.tfstate
-terraform/.terraform
+terraform/*
+terraform/

@@ -8,6 +8,4 @@ internal_render/*
 *.blend1?
 .git/*
 referencias/*
-terraform/.terraform/*
-terraform/terraform.tfstate
-service-key.json
+terraform/*

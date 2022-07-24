@@ -32,15 +32,26 @@ resource "google_storage_bucket" "bucket_tfback" {
   depends_on = [google_project_service.project_services]
 }
 
-resource "google_service_account" "service_account_3dmodels" {
+resource "google_service_account" "service_account_3dmodels_0" {
   account_id   = "sa-3dmodels"
   display_name = "sa-3dmodels"
   depends_on = [google_project_service.project_services]
 }
 
-resource "null_resource" "service_account_key_json_download_1" {
+resource "google_project_iam_member" "iam_roles_3dmodels" {
+  for_each = toset([
+    "roles/editor"
+  ])
+  project = var.GOOGLE_CLOUD_PROJECT
+  role    = each.key
+  member  = "serviceAccount:${google_service_account.service_account_3dmodels_0.email}"
+  depends_on = [google_service_account.service_account_3dmodels_0]
+}
+
+
+resource "null_resource" "service_account_key_json_download_0" {
   provisioner "local-exec" {
-    command = "gcloud iam service-accounts keys create 'service-key.json' --iam-account='${google_service_account.service_account_3dmodels.email}' --project='${var.GOOGLE_CLOUD_PROJECT}';mv service-key.json ../"
+    command = "gcloud iam service-accounts keys create 'service-key.json' --iam-account='${google_service_account.service_account_3dmodels_0.email}' --project='${var.GOOGLE_CLOUD_PROJECT}';mv service-key.json ../"
   }
-  depends_on = [google_service_account.service_account_3dmodels]
+  depends_on = [google_service_account.service_account_3dmodels_0]
 }
