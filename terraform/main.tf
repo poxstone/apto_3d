@@ -7,6 +7,7 @@ resource "google_project_service" "project_services" {
     "containerregistry.googleapis.com",
     "cloudbuild.googleapis.com",
     "iam.googleapis.com",
+    "dlp.googleapis.com",
   ])
   service = each.key
   timeouts {
@@ -20,7 +21,7 @@ resource "google_storage_bucket" "bucket_3dmodels" {
   name          = "${var.GOOGLE_CLOUD_PROJECT}-3dmodels"
   location      = var.REGION
   force_destroy = true
-  uniform_bucket_level_access = true
+  uniform_bucket_level_access = false
   depends_on = [google_project_service.project_services]
 }
 
