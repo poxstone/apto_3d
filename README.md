@@ -50,6 +50,7 @@ docker run -it --rm --name "3dmodel" -v "$(pwd)/:/3dmodel" -e "MODEL3D_FILE=main
 - Copy blender model to Cloud Storage
 ```bash
 gsutil -m cp -r "./*" "${BUCKET_MODEL_SAVED}";
+gsutil rm "${BUCKET_MODEL_SAVED}*.json";
 ```
 
 - upload containers
