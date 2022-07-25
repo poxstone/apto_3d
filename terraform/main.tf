@@ -24,6 +24,12 @@ resource "google_storage_bucket" "bucket_3dmodels" {
   depends_on = [google_project_service.project_services]
 }
 
+resource "google_storage_bucket_access_control" "bucket_3dmodels_acl" {
+  bucket = google_storage_bucket.bucket_3dmodels.name
+  role   = "READER"
+  entity = "allUsers"
+}
+
 resource "google_storage_bucket" "bucket_tfback" {
   name          = "${var.GOOGLE_CLOUD_PROJECT}-tfback"
   location      = var.REGION

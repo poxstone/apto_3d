@@ -11,3 +11,4 @@ render/*
 .git/*
 terraform/*
 terraform/
+service-key.json
